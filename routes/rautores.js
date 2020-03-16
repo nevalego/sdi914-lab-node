@@ -29,6 +29,11 @@ module.exports = function (app, swig) {
         }
     });
 
+    app.get('/autores/:id', function (req, res) {
+        let respuesta = 'id: ' + req.params.id;
+        res.send(respuesta);
+    });
+
     app.get("/autores", function (req, res) {
         var autores = [{
             "nombre": "Freddie Mercury",
