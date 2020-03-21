@@ -7,9 +7,10 @@
       <change beforePath="$PROJECT_DIR$/modules/gestorDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/gestorDB.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/bcancion.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bcancion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/bidentificacion.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bidentificacion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/bregistro.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bregistro.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/rcanciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rcanciones.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/bagregar.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bagregar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/rusuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rusuarios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/btienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/btienda.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +80,7 @@
       <updated>1584346462482</updated>
       <workItem from="1584346465378" duration="81000" />
       <workItem from="1584346959528" duration="6030000" />
-      <workItem from="1584826697723" duration="6291000" />
+      <workItem from="1584826697723" duration="8002000" />
     </task>
     <servers />
   </component>
@@ -87,21 +88,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="962" height="135" key="GridCell.Tab.0.bottom" timestamp="1584833029062">
+    <state width="962" height="135" key="GridCell.Tab.0.bottom" timestamp="1584834753464">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="962" height="135" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584833029062" />
-    <state width="962" height="135" key="GridCell.Tab.0.center" timestamp="1584833029062">
+    <state width="962" height="135" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1584834753464" />
+    <state width="962" height="135" key="GridCell.Tab.0.center" timestamp="1584834753449">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="962" height="135" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584833029062" />
-    <state width="962" height="135" key="GridCell.Tab.0.left" timestamp="1584833029062">
+    <state width="962" height="135" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1584834753449" />
+    <state width="962" height="135" key="GridCell.Tab.0.left" timestamp="1584834753449">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="962" height="135" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584833029062" />
-    <state width="962" height="135" key="GridCell.Tab.0.right" timestamp="1584833029062">
+    <state width="962" height="135" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1584834753449" />
+    <state width="962" height="135" key="GridCell.Tab.0.right" timestamp="1584834753464">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="962" height="135" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584833029062" />
+    <state width="962" height="135" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1584834753449" />
   </component>
 </project>

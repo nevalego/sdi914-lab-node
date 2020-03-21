@@ -20,6 +20,10 @@ module.exports = function (app, swig, gestorDB) {
     })
 
     app.get('/canciones/agregar', function (req, res) {
+        if( req.session.usuario == null){
+            res.redirect("/tienda");
+            return;
+        }
         let respuesta = swig.renderFile('views/bagregar.html', {});
         res.send(respuesta);
     })
@@ -53,10 +57,15 @@ module.exports = function (app, swig, gestorDB) {
     })
 
     app.post("/cancion", function (req, res) {
+        if( req.session.usuario == null){
+            res.redirect("/tienda");
+            return;
+        }
         let cancion = {
             nombre: req.body.nombre,
             genero: req.body.genero,
-            precio: req.body.precio
+            precio: req.body.precio,
+            autor: req.session.usuario
         }
         // Conectarse
         gestorDB.insertarCancion(cancion,
