@@ -19,5 +19,23 @@ module.exports = {
                 });
             }
         });
+    },
+    obtenerCanciones : function (criterio,functionCallback) {
+        this.mongo.MongoClient.connect(this.app.get('db'), function(err, db) {
+           if (err) {
+               functionCallback(null);
+           } else {
+               let collection = db.collection('canciones');
+               collection.find(criterio).toArray(function(err,
+                                                          canciones){
+                   if (err) {
+                       functionCallback(null);
+                   } else{
+                       functionCallback(canciones);
+                   }
+                   db.close();
+               })
+           }
+        });
     }
 };
