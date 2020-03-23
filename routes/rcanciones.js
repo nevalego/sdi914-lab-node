@@ -26,14 +26,23 @@ module.exports = function (app, swig, gestorDB) {
 
     app.get('/cancion/:id', function (req, res) {
         let criterio = {"_id": gestorDB.mongo.ObjectID(req.params.id)};
+        let comentarios = [];
 
+        gestorDB.obtenederComentarios(criterio, function (comentarios) {
+            if (comentarios == null) {
+                res.send("Error al obtener comentarios cancion");
+            } else {
+                comentarios = comentarios[0];
+            }
+        });
         gestorDB.obtenerCanciones(criterio, function (canciones) {
             if (canciones == null) {
-                res.send(respuesta);
+                res.send("Error al obtener cancion");
             } else {
-                let respuesta = swig.renderFile('views/bcancion.html',
+                respuesta = swig.renderFile('views/bcancion.html',
                     {
-                        cancion: canciones[0]
+                        cancion: canciones[0],
+                        comentarios: comentarios
                     });
                 res.send(respuesta);
             }

@@ -89,5 +89,39 @@ module.exports = {
                 });
             }
         });
+    },
+    insertarComentario: function (comentario, functionCallback ) {
+        this.mongo.MongoClient.connect(this.app.get('db'), function(err, db){
+            if( err){
+                functionCallback(null);
+            } else {
+                let collection = db.collection('comentarios');
+                collection.insert(comentario, function (err, result) {
+                    if (err) {
+                        funcionCallback(null);
+                    } else {
+                        funcionCallback(result.ops[0]._id);
+                    }
+                    db.close();
+                });
+            }
+        })
+    },
+    obtenederComentarios: function (criterio, functionCallback ) {
+        this.mongo.MongoClient.connect(this.app.get('db'), function(err, db){
+            if( err){
+                functionCallback(null);
+            } else {
+                let collection = db.collection('comentarios');
+                collection.find(criterio).toArray(function (err, comentarios) {
+                    if (err) {
+                        funcionCallback(null);
+                    } else {
+                        funcionCallback(comentarios);
+                    }
+                    db.close();
+                });
+            }
+        })
     }
 };
