@@ -6,16 +6,19 @@ module.exports = function (app, swig, gestorDB) {
     })
 
     app.get('/cancion/:id', function (req, res) {
-        let criterio = {"_id": gestorDB.mongo.ObjectID(req.params.id)};
+        let criterio = {
+            "cancion_id": gestorDB.mongo.ObjectID(req.params.id)
+        };
         let comentarios = [];
 
-        gestorDB.obtenederComentarios(criterio, function (comentarios) {
-            if (comentarios == null) {
+        gestorDB.obtenederComentarios(criterio, function (result) {
+            if (result == null) {
                 res.send("Error al obtener comentarios cancion");
             } else {
-                comentarios = comentarios
+                comentarios = result;
             }
         });
+        criterio = {"_id": gestorDB.mongo.ObjectID(req.params.id)};
         gestorDB.obtenerCanciones(criterio, function (canciones) {
             if (canciones == null) {
                 res.send("Error al obtener cancion");

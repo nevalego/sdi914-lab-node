@@ -15,11 +15,11 @@ module.exports = function (app, swig, gestorDB) {
             });
 
         if( req.session.usuario != null) {
-
+            let cancion_id = req.params.cancion_id;
             comentario = {
                 autor: req.session.usuario,
                 texto: req.body.texto,
-                cancion_id: gestorDB.mongo.ObjectID(id)
+                cancion_id: gestorDB.mongo.ObjectID(cancion_id)
             }
 
             // Insertar comentario

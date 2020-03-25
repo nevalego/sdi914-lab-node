@@ -19,49 +19,49 @@
 	  </div>
 	  
 	 <!-- Comentarios -->
-	<h2>Comentarios</h2>
+	<h3>Comentarios</h3>
 	<div class="row">
 
 		<!-- http://librosweb.es/libro/bootstrap_3/capitulo_2/tipos_de_rejillas.html -->
 		<!-- Inicio del Bloque Comentario  -->
 		{% for comentario in comentarios %}
-		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
-			<div style="width:200px">
-				<p>{{ comentario.autor }}</p>
-				<p>{{ comentario.texto }}</p>
-			</div>
+		<div class="row">
+				<h4>Autor:{{ comentario.autor }} </h4>
+				<div>{{ comentario.texto }}</div>
 		</div>
 		{% endfor %}
 		<!-- Fin del Bloque comentarios  -->
 	</div>
 
-<form class="form-horizontal" method="post" action="/comentarios/{{ cancion._id.toString() }}" encType="multipart/form-data">
-<div class="form-group">
-	<label class="control-label col-sm-2" for="texto">Texto :</label>
-	<div class="col-sm-10">
-		<input type="number" step="0.01" class="form-control" name="texto"
-			   placeholder="Escribir comentario" required="true" />
+	<!-- Paginación mostrar la actual y 2 anteriores y dos siguientes -->
+	<div class="row text-center">
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+			<li class="page-item active"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">4</a></li>
+			<li class="page-item"><a class="page-link" href="#">5</a></li>
+			<li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+		</ul>
 	</div>
-</div>
-<div class="form-group">
-	<div class="col-sm-offset-2 col-sm-10">
-		<button type="submit" class="btn btn-primary">Comentar</button>
+
+	<h3>Añadir comentario</h3>
+	<div class="row">
+		<form class="form-horizontal" method="post" action="/comentarios/{{ cancion._id.toString() }}" encType="multipart/form-data">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="texto">Texto :</label>
+			<div class="col-sm-10">
+				<input type="text" step="0.01" class="form-control" name="texto"
+					   placeholder="Escribir comentario" required="true" />
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-primary">Comentar</button>
+			</div>
+		</div>
+		</form>
 	</div>
-</div>
-</form>
-
-
-<!-- Paginación mostrar la actual y 2 anteriores y dos siguientes -->
-<div class="row text-center">
-	<ul class="pagination">
-		<li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-		<li class="page-item active"><a class="page-link" href="#">1</a></li>
-		<li class="page-item"><a class="page-link" href="#">2</a></li>
-		<li class="page-item"><a class="page-link" href="#">3</a></li>
-		<li class="page-item"><a class="page-link" href="#">4</a></li>
-		<li class="page-item"><a class="page-link" href="#">5</a></li>
-		<li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-	</ul>
-</div>
 
 {% endblock %}
