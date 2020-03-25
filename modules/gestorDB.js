@@ -98,9 +98,9 @@ module.exports = {
                 let collection = db.collection('comentarios');
                 collection.insert(comentario, function (err, result) {
                     if (err) {
-                        funcionCallback(null);
+                        functionCallback(null);
                     } else {
-                        funcionCallback(result.ops[0]._id);
+                        functionCallback(result.ops[0]._id);
                     }
                     db.close();
                 });
@@ -115,9 +115,9 @@ module.exports = {
                 let collection = db.collection('comentarios');
                 collection.find(criterio).toArray(function (err, comentarios) {
                     if (err) {
-                        funcionCallback(null);
+                        functionCallback(null);
                     } else {
-                        funcionCallback(comentarios);
+                        functionCallback(comentarios);
                     }
                     db.close();
                 });

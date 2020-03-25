@@ -1,24 +1,5 @@
 module.exports = function (app, swig, gestorDB) {
 
-    app.get("/canciones", function (req, res) {
-        var canciones = [{
-            "nombre": "Blanck space",
-            "precio": "1.2"
-        }, {
-            "nombre": "See you again",
-            "precio": "1.3"
-        }, {
-            "nombre": "Uptown Funk",
-            "precio": "1.1"
-        }];
-
-        var respuesta = swig.renderFile('views/btienda.html', {
-            vendedor: 'Tienda de canciones',
-            canciones: canciones
-        });
-        res.send(respuesta);
-    })
-
     app.get('/canciones/agregar', function (req, res) {
         let respuesta = swig.renderFile('views/bagregar.html', {});
         res.send(respuesta);
@@ -32,14 +13,14 @@ module.exports = function (app, swig, gestorDB) {
             if (comentarios == null) {
                 res.send("Error al obtener comentarios cancion");
             } else {
-                comentarios = comentarios[0];
+                comentarios = comentarios
             }
         });
         gestorDB.obtenerCanciones(criterio, function (canciones) {
             if (canciones == null) {
                 res.send("Error al obtener cancion");
             } else {
-                respuesta = swig.renderFile('views/bcancion.html',
+                let respuesta = swig.renderFile('views/bcancion.html',
                     {
                         cancion: canciones[0],
                         comentarios: comentarios
@@ -198,4 +179,3 @@ module.exports = function (app, swig, gestorDB) {
         });
     });
 }
-;
