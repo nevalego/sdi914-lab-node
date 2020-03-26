@@ -95,6 +95,10 @@ require("./routes/rautores.js")(app, swig);
 
 app.use(express.static('public'));
 
+app.get('/', function (req,res) {
+    res.redirect('/tienda');
+})
+
 // lanzar el servidor
 app.listen(app.get('port'), function () {
     console.log("Servidor activo");
