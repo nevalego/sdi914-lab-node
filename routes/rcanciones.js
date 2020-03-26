@@ -71,20 +71,20 @@ module.exports = function (app, swig, gestorDB) {
     })
 
     app.get('/compras', function (req, res) {
-        let criterio = { "usuario" : req.session.usuario };
+        let criterio = {"usuario": req.session.usuario};
         gestorDB.obtenerCompras(criterio, function (compras) {
-            if(compras == null){
+            if (compras == null) {
                 res.send("Error al listar");
-            }else{
+            } else {
                 let cancionesCompradasIds = [];
-                for(i=0; i < compras.length; i++) {
+                for (i = 0; i < compras.length; i++) {
                     cancionesCompradasIds.push(compras[i].cancionId);
                 }
-                let criterio = { "_id" : { $in: cancionesCompradasIds } }
+                let criterio = {"_id": {$in: cancionesCompradasIds}}
                 gestorDB.obtenerCanciones(criterio, function (canciones) {
                     let respuesta = swig.renderFile('views/bcompras.html',
                         {
-                            canciones : canciones
+                            canciones: canciones
                         });
                     res.send(respuesta);
                 })
@@ -202,16 +202,38 @@ module.exports = function (app, swig, gestorDB) {
         if (req.query.busqueda != null) {
             criterio = {"nombre": {$regex: ".*" + req.query.busqueda + ".*"}};
         }
-        gestorDB.obtenerCanciones(criterio, function (canciones) {
+
+        let pg = parseInt(req.query.pg); // Es String !!!
+        if (req.query.pg == null) { // Puede no venir el param
+            pg = 1;
+        }
+
+        gestorDB.obtenerCancionesPg(criterio, pg,
+            function (canciones, total) {
             if (canciones == null) {
                 res.send("Error al listar ");
             } else {
-                let respuesta = swig.renderFile('views/btienda.html', {
-                    canciones: canciones
-                });
+                let ultimaPg = total/4;
+                if (total % 4 > 0) {
+                    // Sobran decimales
+                    ultimaPg = ultimaPg+1;
+                }
+                let paginas = [];
+                // paginas mostrar
+                for(let i = pg-2 ; i <= pg+2 ; i++){
+                    if ( i > 0 && i <= ultimaPg){
+                        paginas.push(i);
+                    }
+                }
+                let respuesta = swig.renderFile('views/btienda.html',
+                    {
+                        canciones : canciones,
+                        paginas : paginas,
+                        actual : pg
+                    });
                 res.send(respuesta);
-            }
-        });
+                }
+            });
     });
 
     app.get("/publicaciones", function (req, res) {

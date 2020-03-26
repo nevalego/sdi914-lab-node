@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="712240eb-387a-4df9-8d0d-0b26bf7a241c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/gestorDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/gestorDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/bcompras.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bcompras.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/rcanciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rcanciones.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/bcancion.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bcancion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/btienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/btienda.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +79,8 @@
       <workItem from="1584951796678" duration="6619000" />
       <workItem from="1584981698556" duration="25000" />
       <workItem from="1585157665031" duration="7007000" />
-      <workItem from="1585216272781" duration="3370000" />
+      <workItem from="1585216272781" duration="4964000" />
+      <workItem from="1585244030838" duration="725000" />
     </task>
     <servers />
   </component>
@@ -93,22 +92,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585164687414" />
-    <state width="1515" height="261" key="GridCell.Tab.0.bottom" timestamp="1585164688435">
+    <state width="1515" height="155" key="GridCell.Tab.0.bottom" timestamp="1585244767762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="261" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585164688435" />
-    <state width="1515" height="261" key="GridCell.Tab.0.center" timestamp="1585164688435">
+    <state width="1515" height="155" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585244767762" />
+    <state width="1515" height="155" key="GridCell.Tab.0.center" timestamp="1585244767762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="261" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585164688435" />
-    <state width="1515" height="261" key="GridCell.Tab.0.left" timestamp="1585164688435">
+    <state width="1515" height="155" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585244767762" />
+    <state width="1515" height="155" key="GridCell.Tab.0.left" timestamp="1585244767762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="261" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585164688435" />
-    <state width="1515" height="261" key="GridCell.Tab.0.right" timestamp="1585164688435">
+    <state width="1515" height="155" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585244767762" />
+    <state width="1515" height="155" key="GridCell.Tab.0.right" timestamp="1585244767762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="261" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585164688435" />
+    <state width="1515" height="155" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585244767762" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1585164688435">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -172,7 +171,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/modules/gestorDB.js</url>
-          <line>170</line>
+          <line>192</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
