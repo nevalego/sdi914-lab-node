@@ -33,6 +33,17 @@ module.exports = function (app, swig, gestorDB) {
         });
     })
 
+    app.get('/cancion/eliminar/:id', function (req, res) {
+        let criterio = {"_id": gestorDB.mongo.ObjectID(req.params.id)};
+        gestorDB.eliminarCancion(criterio, function (canciones) {
+            if (canciones == null) {
+                res.send(respuesta);
+            } else {
+                res.redirect("/publicaciones");
+            }
+        });
+    })
+
     app.get('/cancion/modificar/:id', function (req, res) {
         let criterio = {"_id": gestorDB.mongo.ObjectID(req.params.id)};
         gestorDB.obtenerCanciones(criterio, function (canciones) {
