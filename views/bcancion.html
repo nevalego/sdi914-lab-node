@@ -1,67 +1,72 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
 {% block titulo %} Detalles {{ cancion.nombre }} {% endblock %}
 
 {% block contenido_principal %}
-	 <div class="row">
-		<div class="media col-xs-10">
-		  <div class="media-left media-middle">
-			<img class="media-object" src="/portadas/{{ cancion._id.toString() }}.png" >
-		  </div>
-		  <div class="media-body">
-			 <h2>{{ cancion.nombre }}</h2>
-			 <p>{{ cancion.autor }}</p>
-			 <p>{{ cancion.genero }}</p>
-			 <button type="button" class="btn btn-primary pull-right">{{ cancion.precio }} €</button>
-			 <!-- Cambiar el precio por "reproducir" si ya está comprada -->
-		  </div>
-		</div>
-	  </div>
-	  
-	 <!-- Comentarios -->
-	<h3>Comentarios</h3>
-	<div class="row">
+<div class="row">
+    <div class="media col-xs-10">
+        <div class="media-left media-middle">
+            <img class="media-object" src="/portadas/{{ cancion._id.toString() }}.png">
+        </div>
+        <div class="media-body">
+            <h2>{{ cancion.nombre }}</h2>
+            <p>{{ cancion.autor }}</p>
+            <p>{{ cancion.genero }}</p>
 
-		<!-- http://librosweb.es/libro/bootstrap_3/capitulo_2/tipos_de_rejillas.html -->
-		<!-- Inicio del Bloque Comentario  -->
-		{% for comentario in comentarios %}
-		<div class="row">
-				<h4>Autor:{{ comentario.autor }} </h4>
-				<div>{{ comentario.texto }}</div>
-		</div>
-		{% endfor %}
-		<!-- Fin del Bloque comentarios  -->
-	</div>
+            <a class="btn btn-primary pull-right"
+			   href="/cancion/comprar/{{cancion._id.toString()}}">
+				{{ cancion.precio }} €</a>
 
-	<!-- Paginación mostrar la actual y 2 anteriores y dos siguientes -->
-	<div class="row text-center">
-		<ul class="pagination">
-			<li class="page-item"><a class="page-link" href="#">Anterior</a></li>
-			<li class="page-item active"><a class="page-link" href="#">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#">4</a></li>
-			<li class="page-item"><a class="page-link" href="#">5</a></li>
-			<li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
-		</ul>
-	</div>
+            <!-- Cambiar el precio por "reproducir" si ya está comprada -->
+        </div>
+    </div>
+</div>
 
-	<h3>Añadir comentario</h3>
-	<div class="row">
-		<form class="form-horizontal" method="post" action="/comentarios/{{ cancion._id.toString() }}" encType="multipart/form-data">
-		<div class="form-group">
-			<label class="control-label col-sm-2" for="texto">Texto :</label>
-			<div class="col-sm-10">
-				<input type="text" step="0.01" class="form-control" name="texto"
-					   placeholder="Escribir comentario" required="true" />
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-primary">Comentar</button>
-			</div>
-		</div>
-		</form>
-	</div>
+<!-- Comentarios -->
+<h3>Comentarios</h3>
+<div class="row">
+
+    <!-- http://librosweb.es/libro/bootstrap_3/capitulo_2/tipos_de_rejillas.html -->
+    <!-- Inicio del Bloque Comentario  -->
+    {% for comentario in comentarios %}
+    <div class="row">
+        <h4>Autor:{{ comentario.autor }} </h4>
+        <div>{{ comentario.texto }}</div>
+    </div>
+    {% endfor %}
+    <!-- Fin del Bloque comentarios  -->
+</div>
+
+<!-- Paginación mostrar la actual y 2 anteriores y dos siguientes -->
+<div class="row text-center">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">4</a></li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+    </ul>
+</div>
+
+<h3>Añadir comentario</h3>
+<div class="row">
+    <form class="form-horizontal" method="post" action="/comentarios/{{ cancion._id.toString() }}"
+          encType="multipart/form-data">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="texto">Texto :</label>
+            <div class="col-sm-10">
+                <input type="text" step="0.01" class="form-control" name="texto"
+                       placeholder="Escribir comentario" required="true"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Comentar</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

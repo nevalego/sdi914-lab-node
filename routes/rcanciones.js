@@ -58,6 +58,40 @@ module.exports = function (app, swig, gestorDB) {
         });
     })
 
+    app.get('/cancion/comprar/:id', function (req, res) {
+        let cancionId = gestorDB.mongo.ObjectID(req.params.id);
+        let compra = {usuario: req.session.usuario, cancionId: cancionId}
+        gestorDB.insertarCompra(compra, function (idCompra) {
+            if (idCompra == null) {
+                res.send(respuesta);
+            } else {
+                res.redirect("/compras");
+            }
+        });
+    })
+
+    app.get('/compras', function (req, res) {
+        let criterio = { "usuario" : req.session.usuario };
+        gestorDB.obtenerCompras(criterio, function (compras) {
+            if(compras == null){
+                res.send("Error al listar");
+            }else{
+                let cancionesCompradasIds = [];
+                for(i=0; i < compras.length; i++) {
+                    cancionesCompradasIds.push(compras[i].cancionId);
+                }
+                let criterio = { "_id" : { $in: cancionesCompradasIds } }
+                gestorDB.obtenerCanciones(criterio, function (canciones) {
+                    let respuesta = swig.renderFile('views/bcompras.html',
+                        {
+                            canciones : canciones
+                        });
+                    res.send(respuesta);
+                })
+            }
+        })
+    })
+
     app.post('/cancion/modificar/:id', function (req, res) {
         let id = req.params.id;
         let criterio = {"_id": gestorDB.mongo.ObjectID(id)};
