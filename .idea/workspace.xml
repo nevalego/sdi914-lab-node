@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="712240eb-387a-4df9-8d0d-0b26bf7a241c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/certificates/alice.crt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/certificates/alice.key" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/gestorDB.js" beforeDir="false" afterPath="$PROJECT_DIR$/modules/gestorDB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/rcanciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rcanciones.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/btienda.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/btienda.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +37,20 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/certificates" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\nerea\Documents\2 SEMESTRE\SDI\6. Desarrollo web con Node.js 1\sdi-lab-node\sdi914-lab-node\certificates" />
+      <recent name="C:\Users\nerea\Documents\2 SEMESTRE\SDI\7.Node\sdi-lab-node\sdi914-lab-node\public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nerea\Documents\2 SEMESTRE\SDI\6. Desarrollo web con Node.js 1\sdi-lab-node\sdi914-lab-node\views" />
       <recent name="C:\Users\nerea\Documents\2 SEMESTRE\SDI\7.Node\sdi-lab-node\sdi914-lab-node\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\nerea\Documents\2 SEMESTRE\SDI\7.Node\sdi-lab-node\sdi914-lab-node\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -80,7 +81,7 @@
       <workItem from="1584981698556" duration="25000" />
       <workItem from="1585157665031" duration="7007000" />
       <workItem from="1585216272781" duration="4964000" />
-      <workItem from="1585244030838" duration="725000" />
+      <workItem from="1585244030838" duration="1209000" />
     </task>
     <servers />
   </component>
@@ -92,22 +93,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585164687414" />
-    <state width="1515" height="155" key="GridCell.Tab.0.bottom" timestamp="1585244767762">
+    <state width="746" height="155" key="GridCell.Tab.0.bottom" timestamp="1585245259305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="155" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585244767762" />
-    <state width="1515" height="155" key="GridCell.Tab.0.center" timestamp="1585244767762">
+    <state width="746" height="155" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585245259305" />
+    <state width="746" height="155" key="GridCell.Tab.0.center" timestamp="1585245259305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="155" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585244767762" />
-    <state width="1515" height="155" key="GridCell.Tab.0.left" timestamp="1585244767762">
+    <state width="746" height="155" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585245259305" />
+    <state width="746" height="155" key="GridCell.Tab.0.left" timestamp="1585245259305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="155" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585244767762" />
-    <state width="1515" height="155" key="GridCell.Tab.0.right" timestamp="1585244767762">
+    <state width="746" height="155" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585245259305" />
+    <state width="746" height="155" key="GridCell.Tab.0.right" timestamp="1585245259305">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="155" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585244767762" />
+    <state width="746" height="155" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585245259305" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1585164688435">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
