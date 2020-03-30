@@ -26,7 +26,8 @@ module.exports = function (app, swig, gestorDB) {
                 let respuesta = swig.renderFile('views/bcancion.html',
                     {
                         cancion: canciones[0],
-                        comentarios: comentarios
+                        comentarios: comentarios,
+                        usuario: req.session.usuario
                     });
                 res.send(respuesta);
             }

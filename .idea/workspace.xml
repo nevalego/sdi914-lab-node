@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="712240eb-387a-4df9-8d0d-0b26bf7a241c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/certificates/alice.crt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/certificates/alice.key" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/rcanciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/rcanciones.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/bcancion.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bcancion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/bpublicaciones.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/bpublicaciones.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,22 +94,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585164687414" />
-    <state width="746" height="155" key="GridCell.Tab.0.bottom" timestamp="1585245259305">
+    <state width="447" height="209" key="GridCell.Tab.0.bottom" timestamp="1585558664244">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="746" height="155" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585245259305" />
-    <state width="746" height="155" key="GridCell.Tab.0.center" timestamp="1585245259305">
+    <state width="447" height="209" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1585558664244" />
+    <state width="447" height="209" key="GridCell.Tab.0.center" timestamp="1585558664244">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="746" height="155" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585245259305" />
-    <state width="746" height="155" key="GridCell.Tab.0.left" timestamp="1585245259305">
+    <state width="447" height="209" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1585558664244" />
+    <state width="447" height="209" key="GridCell.Tab.0.left" timestamp="1585558664244">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="746" height="155" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585245259305" />
-    <state width="746" height="155" key="GridCell.Tab.0.right" timestamp="1585245259305">
+    <state width="447" height="209" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1585558664244" />
+    <state width="447" height="209" key="GridCell.Tab.0.right" timestamp="1585558664244">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="746" height="155" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585245259305" />
+    <state width="447" height="209" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1585558664244" />
     <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1585164688435">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -157,19 +158,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="261" key="GridCell.Tab.3.right/0.0.1536.824@0.0.1536.824" timestamp="1585162409751" />
-    <state x="700" y="190" key="run.anything.popup" timestamp="1585223506763">
+    <state x="701" y="190" width="672" height="677" key="run.anything.popup" timestamp="1585554814612">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="700" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585223506763" />
+    <state x="701" y="190" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1585554814612" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/routes/rcanciones.js</url>
-          <line>14</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/modules/gestorDB.js</url>
           <line>192</line>

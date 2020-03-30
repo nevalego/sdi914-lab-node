@@ -13,11 +13,22 @@
             <p>{{ cancion.autor }}</p>
             <p>{{ cancion.genero }}</p>
 
+            <!-- Cambiar el precio por "reproducir" si ya está comprada o si es del autor-->
+            <% if ( %>
+            {{ usuario._id.toString() }}
+            <% === %>
+            {{ cancion.autor._id.toString() }}
+            <%) { %>
+            <audio controls source
+                    src="/audios/{{ cancion._id.toString() }}.mp3"
+                    type="audio/mpeg">
+            </audio>
+            <% } else { %>
             <a class="btn btn-primary pull-right"
-			   href="/cancion/comprar/{{cancion._id.toString()}}">
-				{{ cancion.precio }} €</a>
-
-            <!-- Cambiar el precio por "reproducir" si ya está comprada -->
+               href="/cancion/comprar/{{cancion._id.toString()}}">
+                {{ cancion.precio }} €
+            </a>
+            <% } %>
         </div>
     </div>
 </div>
