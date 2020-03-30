@@ -119,7 +119,11 @@ app.use(function(err, req, res, next){
    console.log("Error producido: "+err);// mostramos el erroe en consola
    if( ! res.headersSent){
        res.status(400);
-       res.send("Recurso no disponible");
+       let respuesta = swig.renderFile('views/error.html',
+           {
+               mensaje: "Recurso no disponible"
+           });
+       res.send(respuesta);
    }
 });
 
