@@ -107,6 +107,7 @@ app.set('crypto', crypto);
 require("./routes/rusuarios.js")(app, swig, gestorDB); // (app, param1, param2, etc.)
 require("./routes/rcanciones.js")(app, swig, gestorDB);
 require("./routes/rcomentarios.js")(app, swig, gestorDB);
+require("./routes/rapicanciones.js")(app, gestorDB);
 require("./routes/rautores.js")(app, swig);
 
 app.use(express.static('public'));
