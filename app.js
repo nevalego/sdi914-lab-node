@@ -2,6 +2,9 @@
 let express = require('express');
 let app = express();
 
+var jwt = require('jsonwebtoken');
+app.set('jwt', jwt);
+
 let fs = require('fs');
 let https = require('https');
 
@@ -23,6 +26,36 @@ app.use(bodyParser.urlencoded({extended: true}));
 let gestorDB = require("./modules/gestorDB.js");
 gestorDB.init(app, mongo);
 
+// routerUsuarioToken
+var routerUsuarioToken = express.Router();
+routerUsuarioToken.use(function (req, res, next) {
+    // obtener el token, vía headers (opcionalmente GET y/o POST).
+    var token = req.headers['token'] || req.body.token || req.query.token;
+    if (token != null) {
+        // verificar el token
+        jwt.verify(token, 'secreto', function (err, infoToken) {
+            if (err || (Date.now() / 1000 - infoToken.tiempo) > 240) {
+                res.status(403);
+                // Forbidden
+                res.json({acceso: false, error: 'Token invalido o caducado'});
+                // También podríamos comprobar que intoToken.usuario existe
+                return;
+            } else {
+                // dejamos correr la petición
+                res.usuario = infoToken.usuario;
+                next();
+            }
+        });
+    } else {
+        res.status(403);
+        // Forbidden
+        res.json({acceso: false, mensaje: 'No hay Token'});
+    }
+});
+
+// Aplicar routerUsuarioToken
+app.use('/api/cancion', routerUsuarioToken);
+
 // routerUsuarioSession
 let routerUsuarioSession = express.Router();
 routerUsuarioSession.use(function (req, res, next) {
@@ -31,62 +64,62 @@ routerUsuarioSession.use(function (req, res, next) {
         // dejamos correr la petición
         next();
     } else {
-        console.log("va a : "+req.session.destino);
+        console.log("va a : " + req.session.destino);
         res.redirect("/identificarse");
     }
 });
 
 //Aplicar routerUsuarioSession
-app.use("/canciones/agregar",routerUsuarioSession);
-app.use("/publicaciones",routerUsuarioSession);
-app.use("/comentarios",routerUsuarioSession);
+app.use("/canciones/agregar", routerUsuarioSession);
+app.use("/publicaciones", routerUsuarioSession);
+app.use("/comentarios", routerUsuarioSession);
 app.use("/cancion/comprar", routerUsuarioSession);
 app.use("/compras", routerUsuarioSession);
 
 //routerUsuarioAutor
 let routerUsuarioAutor = express.Router();
-routerUsuarioAutor.use(function(req, res, next) {
+routerUsuarioAutor.use(function (req, res, next) {
     console.log("routerUsuarioAutor");
     let path = require('path');
     let id = path.basename(req.originalUrl);
     // Cuidado porque req.params no funciona
     // en el router si los params van en la URL.
-    gestorDB.obtenerCanciones(      {_id: mongo.ObjectID(id) },
+    gestorDB.obtenerCanciones({_id: mongo.ObjectID(id)},
         function (canciones) {
-        console.log(canciones[0]);
-        if(canciones[0].autor == req.session.usuario ){
-            next();
-        } else {
-            res.redirect("/tienda");
-        }
-    })
+            console.log(canciones[0]);
+            if (canciones[0].autor == req.session.usuario) {
+                next();
+            } else {
+                res.redirect("/tienda");
+            }
+        })
 });
 
 //Aplicar routerUsuarioAutor
-app.use("/cancion/modificar",routerUsuarioAutor);
-app.use("/cancion/eliminar",routerUsuarioAutor);
+app.use("/cancion/modificar", routerUsuarioAutor);
+app.use("/cancion/eliminar", routerUsuarioAutor);
 
 //routerAudios
 let routerAudios = express.Router();
-routerAudios.use(function(req, res, next) {
+routerAudios.use(function (req, res, next) {
     console.log("routerAudios");
     let path = require('path');
     let idCancion = path.basename(req.originalUrl, '.mp3');
     gestorDB.obtenerCanciones(
-        {"_id": mongo.ObjectID(idCancion) },
+        {"_id": mongo.ObjectID(idCancion)},
         function (canciones) {
-            if(req.session.usuario && canciones[0].autor == req.session.usuario ){
+            if (req.session.usuario && canciones[0].autor == req.session.usuario) {
                 next();
             } else {
                 let criterio = {
-                  usuario : req.session.usuario,
-                  cancionId : mongo.ObjectID(idCancion)
+                    usuario: req.session.usuario,
+                    cancionId: mongo.ObjectID(idCancion)
                 };
 
                 gestorDB.obtenerCompras(criterio, function (compras) {
-                    if( compras != null && compras.length > 0 ){
+                    if (compras != null && compras.length > 0) {
                         next();
-                    }else{
+                    } else {
                         res.redirect("/tienda");
                     }
                 });
@@ -95,7 +128,7 @@ routerAudios.use(function(req, res, next) {
 });
 
 //Aplicar routerAudios
-app.use("/audios/",routerAudios);
+app.use("/audios/", routerAudios);
 
 // Variables
 app.set('port', 8081);
@@ -112,26 +145,26 @@ require("./routes/rautores.js")(app, swig);
 
 app.use(express.static('public'));
 
-app.get('/', function (req,res) {
+app.get('/', function (req, res) {
     res.redirect('/tienda');
 })
 
-app.use(function(err, req, res, next){
-   console.log("Error producido: "+err);// mostramos el erroe en consola
-   if( ! res.headersSent){
-       res.status(400);
-       let respuesta = swig.renderFile('views/error.html',
-           {
-               mensaje: "Recurso no disponible"
-           });
-       res.send(respuesta);
-   }
+app.use(function (err, req, res, next) {
+    console.log("Error producido: " + err);// mostramos el erroe en consola
+    if (!res.headersSent) {
+        res.status(400);
+        let respuesta = swig.renderFile('views/error.html',
+            {
+                mensaje: "Recurso no disponible"
+            });
+        res.send(respuesta);
+    }
 })
 
 // lanzar el servidor
 https.createServer({
     key: fs.readFileSync('certificates/alice.key'),
     cert: fs.readFileSync('certificates/alice.crt')
-}, app).listen(app.get('port'), function() {
+}, app).listen(app.get('port'), function () {
     console.log("Servidor activo");
 });
