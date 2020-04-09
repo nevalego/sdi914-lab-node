@@ -23,13 +23,28 @@ module.exports = function (app, swig, gestorDB) {
             if (canciones == null) {
                 res.send("Error al obtener cancion");
             } else {
-                let respuesta = swig.renderFile('views/bcancion.html',
-                    {
-                        cancion: canciones[0],
-                        comentarios: comentarios,
-                        usuario: req.session.usuario
-                    });
-                res.send(respuesta);
+                var configuracion = {
+                    url: "https://api.exchangeratesapi.io/latest?base=EUR",
+                    method: "get",
+                    headers: {
+                        "token": "ejemplo",
+                    }
+                }
+                var rest = app.get("rest");
+                rest(configuracion, function (error, response, body) {
+                    console.log("cod: "+ response.statusCode+ " Cuerpo : "+ body);
+                    var objetoRespuesta = JSON.parse(body);
+                    var cambioUSD = objetoRespuesta.rates.USD;
+                    // nuevo campo "usd"
+                    canciones[0].usd = cambioUSD * canciones[0].precio;
+                    let respuesta = swig.renderFile('views/bcancion.html',
+                        {
+                            cancion: canciones[0],
+                            comentarios: comentarios,
+                            usuario: req.session.usuario
+                        });
+                    res.send(respuesta);
+                })
             }
         });
     })
