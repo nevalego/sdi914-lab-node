@@ -114,7 +114,9 @@
                 $("#" + _id).remove();
                 // eliminar el <tr> de la canción
             }, error: function (error) {
-                $("#contenedor-principal").load("widget-login.html");
+                console.log(error.message);
+                $( "#widget-canciones")
+                    .prepend("<div class='alert alert-danger'>error.message</div>");
             }
         });
     }
